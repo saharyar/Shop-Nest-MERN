@@ -1,0 +1,17 @@
+{
+  "name": "p3",
+  "version": "1.0.0",
+  "description": "ShopNest MERN Stack",
+  "author": "saharyar",
+  "license": "ISC",
+  "type": "commonjs",
+  "scripts": {
+    "dev:server": "npm run dev --prefix backend",
+    "dev:client": "npm run dev --prefix frontend/vite-project",
+    "dev":        "concurrently \"npm run dev:server\" \"npm run dev:client\"",
+    "build":      "npm run build --prefix frontend/vite-project"
+  },
+  "dependencies": {
+    "concurrently": "^10.0.3"
+  }
+}
