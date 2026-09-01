@@ -14,6 +14,7 @@ import OrderSuccess from './pages/OrderSuccess';
 import About from './pages/About';
 import Disclaimer from './pages/Disclaimer';
 import ReturnPolicy from './pages/ReturnPolicy';
+import NotFound from './pages/NotFound';
 import AdminDashboard from './Admin/AdminDashboard';
 import AddProduct from './Admin/AddProduct';
 import AdminProduct from './Admin/AdminProduct';
@@ -45,6 +46,7 @@ function App() {
           <Route path="/Admin/edit-product/:id" element={<EditProduct />} />
           <Route path="/Admin/orders" element={<AdminOrders />} />
           <Route path="/Admin/users" element={<AdminUsers />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
       <Footer />

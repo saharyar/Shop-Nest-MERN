@@ -3,7 +3,9 @@ const cloudinary = require('../config/cloudinary');
 
 const getProducts = async (req, res) => {
   try {
-    const products = await Product.find({});
+    const { category } = req.query;
+    const filter = category && category !== 'All' ? { category } : {};
+    const products = await Product.find(filter);
     res.json(products);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -80,4 +82,13 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-module.exports = { getProducts, getProductById, createProduct, updateProduct, deleteProduct };
+const getCategories = async (req, res) => {
+  try {
+    const categories = await Product.distinct('category');
+    res.json(categories);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { getProducts, getProductById, createProduct, updateProduct, deleteProduct, getCategories };

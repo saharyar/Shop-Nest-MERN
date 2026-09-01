@@ -87,12 +87,20 @@
   margin-bottom: 15px;
 }
 
+/* Shop filters container (search bar + category dropdown) */
+.shop-filters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
 /* Search Bar */
 .search-bar {
-  width: 100%;
+  flex: 1;
+  min-width: 220px;
   max-width: 500px;
   padding: 15px 20px;
-  margin-bottom: 30px;
   background: #18181b;
   border: 1px solid #27272a;
   border-radius: 8px;
@@ -102,9 +110,43 @@
   outline: none;
 }
 
+.search-bar::placeholder {
+  color: #71717a;
+}
+
 .search-bar:focus {
   border-color: #f97316;
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+/* Category dropdown */
+.category-dropdown {
+  padding: 14px 18px;
+  background-color: #18181b;
+  border: 1px solid #27272a;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 1rem;
+  outline: none;
+  cursor: pointer;
+  min-width: 160px;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 18px;
+  padding-right: 44px;
+  transition: border-color 0.2s ease;
+}
+
+.category-dropdown:focus,
+.category-dropdown:hover {
+  border-color: #f97316;
+}
+
+.category-dropdown option {
+  background-color: #18181b;
+  color: #ffffff;
 }
 
 /* Detail Page */
@@ -150,8 +192,22 @@
   margin-bottom: 30px;
 }
 
+/* Responsive: tablet and below */
 @media (max-width: 900px) {
   .product-detail {
     grid-template-columns: 1fr;
+  }
+}
+
+/* Responsive: stack filters on small screens */
+@media (max-width: 600px) {
+  .shop-filters {
+    flex-direction: column;
+  }
+
+  .search-bar,
+  .category-dropdown {
+    width: 100%;
+    max-width: none;
   }
 }
